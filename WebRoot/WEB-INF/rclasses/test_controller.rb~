@@ -1,0 +1,9 @@
+
+class TestController < Controller::Base
+  
+  def say
+    @ya.doSomething
+    render :text => "hola desde jruby"
+  end
+  
+end
