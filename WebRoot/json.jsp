@@ -1,0 +1,1 @@
+<% response.setContentType("application/json"); %><%= request.getAttribute("jsondata") == null ? "" : request.getAttribute("jsondata").toString().trim()%>

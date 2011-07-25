@@ -1,0 +1,200 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	font-family: arial;
+}
+
+#appname {
+	display: none;
+}
+
+h1 {
+	padding: 4px;
+	margin: 0;
+	color: #FFF;
+	font-family: arial;
+	background: url("../images/caronte_bg.png") repeat-x;
+}
+
+#regServers h3,#views h3,#currServers h3,#serverform h3,#cd h3,#contentdist h3
+	{
+	border: 1px solid #999;
+	padding: 2px;
+	margin-bottom: 0px;
+	background-color: #999;
+	color: #fff;
+	font-size: 1em;
+}
+
+#regServers form,#views form,#currServers form,#contentdist form {
+	margin-top: -1em;
+	font-size: 12px;
+}
+
+#fields {
+	border: 1px solid #ccc;
+	background-color: #ddd;
+	font-size: 12px;
+	padding: 2px 4px 2px 10px;
+}
+
+#content {
+	padding: 0px;
+	margin: 0px;
+}
+
+#toolbar {
+	border-bottom: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+	background: #F0F0F0;
+	margin: 0;
+	height: 270px;
+}
+
+#views {
+	float: left;
+	position: absolute;
+	left: 33em;
+	padding-right: 1em;
+	border-right: 1px dotted #CCC;
+}
+
+#currservers {
+	float: left;
+	position: absolute;
+	left: 17em;
+	top: 7em;
+}
+
+#regservers {
+	float: left;
+	left: 1em;
+	position: absolute;
+	top: 7em;
+	width: 234px;
+}
+
+#cd {
+	width: 490px;
+	float: left;
+	left: 51em;
+	position: relative;
+}
+
+#contentdist {
+	position: absolute;
+	top: 7em;
+	left: 51em;
+}
+
+#contentdistform {
+	margin: 0px;
+}
+
+#serverform {
+	float: left;
+	position: absolute;
+	top: 3em;
+	left: 1em;
+	width: 490px;
+}
+
+.serverlist {
+	height: 100px;
+	overflow: auto;
+	border: 1px solid #CCC;
+	background-color: #DDD;
+	width: 192px;
+}
+
+.serverlist li {
+	list-style: none;
+	margin-left: -2em;
+}
+
+select.views {
+	width: 250px;
+	border: 1px solid #ccc;
+	margin-top: 1em;
+}
+
+#searchArea {
+	position: relative;
+	top: 1em;
+}
+
+#resultheader {
+	background-color: #333;
+	margin: 0 0 -4px 0;
+	border: 1px solid #333;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	text-align: right;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+#results {
+	width: 98%;
+	margin-left: 1%;
+}
+
+.resulttitle {
+	background: #666;
+	color: white;
+	padding: 4px;
+	margin: 4px 0 0 0;
+}
+
+.showmore {
+	font-size: x-small;
+	border: 1px solid white;
+	background-color: white;
+	border-radius: 4px;
+	color: #666;
+	cursor: pointer;
+}
+
+.resultteaser {
+	background-color: #F0F0F0;
+	margin: 0px;
+	font-size: x-small;
+}
+
+.resultbody {
+	display: none;
+	border: 1px dotted #ccc;
+	padding-right: 4px;
+}
+
+.resultbody ul {
+	margin-left: -2em;
+}
+
+.resultbody li {
+	list-style: none;
+}
+
+.resultbody span {
+	background-color: #F0F0F0;
+	width: 200px;
+	float: left;
+	font-size: small;
+}
+
+.resultbody p {
+	margin: 0px;
+	font-size: small;
+}
+
+#modal {
+	background: url("../images/modal_bg.png");	
+	border: 1px solid #CCC;
+	height: 150px;
+	width: 350px;
+	overflow: auto;
+	text-align: center;
+	vertical-align: middle;
+	padding: 1em 2px 1em 2px;
+}

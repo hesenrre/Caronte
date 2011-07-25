@@ -2,7 +2,7 @@
 
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 
-<web-app >
+<web-app>
    <distributable/>
 
     <!--
@@ -24,6 +24,11 @@
     contains the additional listeners and place it in your
     project's merge dir.
     -->
+	<context-param>
+		<param-name>command_path_prefix</param-name>
+		<param-value>com/jwm/caronte/actions/</param-value>
+	</context-param>
+    
 
    <servlet>
       <servlet-name>CoreController</servlet-name>
@@ -35,12 +40,18 @@
       </init-param>
       <init-param>
          <param-name>jvms</param-name>
-         <param-value>java,ruby</param-value>
+         <param-value>java</param-value>
       </init-param>
-
       <load-on-startup>1</load-on-startup>
-
    </servlet>
+   
+   <servlet>
+      <servlet-name>InitServlet</servlet-name>
+      <servlet-class>com.jwm.caronte.servlet.InitServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+   
+   
 
   <!--
   To use non XDoclet servlets, create a servlets.xml file that
