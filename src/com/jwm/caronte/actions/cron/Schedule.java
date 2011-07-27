@@ -1,20 +1,16 @@
 package com.jwm.caronte.actions.cron;
-import org.apache.commons.lang.StringUtils;
+import static org.quartz.CronScheduleBuilder.cronSchedule;
+import static org.quartz.JobBuilder.newJob;
+import static org.quartz.TriggerBuilder.newTrigger;
+
 import org.lainsoft.forge.flow.nav.CommandException;
 import org.lainsoft.forge.flow.nav.GenericAction;
-import static org.quartz.JobBuilder.*;
-import static org.quartz.TriggerBuilder.*;
-import static org.quartz.CronScheduleBuilder.*;
-import static org.quartz.DateBuilder.*;
-import static org.quartz.Job.*;
-
-import java.text.ParseException;
-
-import org.quartz.CronTrigger;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
+
+import com.jwm.caronte.cron.CaronteJob;
 
 
 

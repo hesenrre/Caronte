@@ -1,4 +1,4 @@
-package com.jwm.caronte.actions.cron;
+package com.jwm.caronte.cron;
 
 public class CronParser {
 	
