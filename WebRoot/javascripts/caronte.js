@@ -278,7 +278,8 @@
 					$("#modal").append($("<img/>",{src: appname+"/images/loading.gif"}));
 					$("#modal").modal({
 						 overlay:100,
-						 overlayCss: {backgroundColor:"#000"}
+						 overlayCss: {backgroundColor:"#000"},
+				         escClose: false
 					});
 				},
 				complete: function(){
@@ -317,7 +318,8 @@
 					$("#modal").append($("<img/>",{src: appname+"/images/loading.gif"}));
 					$("#modal").modal({
 						 overlay:100,
-						 overlayCss: {backgroundColor:"#000"}
+						 overlayCss: {backgroundColor:"#000"},
+						 escClose: false
 					});
 				},
 				error: function(){

@@ -189,7 +189,7 @@ select.views {
 }
 
 #modal {
-	background: url("../images/modal_bg.png");	
+	background: url("../images/modal_bg.png");
 	border: 1px solid #CCC;
 	height: 150px;
 	width: 350px;
@@ -197,4 +197,50 @@ select.views {
 	text-align: center;
 	vertical-align: middle;
 	padding: 1em 2px 1em 2px;
+}
+
+#modalform {
+	background: url("../images/modal_bg.png");
+	border: 1px solid #CCC;
+	height: 150px;
+	width: 260px;
+	padding: 1em 1em 1em 1em;
+}
+
+#modalform label {
+	margin: 0px;
+	background-color: #555;
+	color: white;
+	font-weight: bold;
+	display: inline;
+	font-size: small;
+}
+
+#modalform p {
+	margin: 4px 0 0 0;
+}
+
+#modalform span {
+	font-size: small;
+}
+
+#days {
+	border: 1px solid #CCC;
+	padding: 9px;
+	background-color: #AAA;
+	margin: 0px;
+}
+
+#days li {
+	display: inline;
+	margin: 6px;
+	padding: 5px;
+	font-weight: bold;
+	background-color: #CCC;
+	color: #333;
+}
+
+#days li.active,#days li:hover {
+	background-color: #333;
+	color: #ccc;
 }
