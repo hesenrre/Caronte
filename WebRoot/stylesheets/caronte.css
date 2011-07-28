@@ -205,6 +205,7 @@ select.views {
 	height: 150px;
 	width: 260px;
 	padding: 1em 1em 1em 1em;
+	display:none;
 }
 
 #modalform label {
