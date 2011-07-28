@@ -22,9 +22,7 @@
 	}
 	
 	var loadButtonListener = function(){
-		console.debug("loading listener");
 		$("#schdeletb").click(function(){
-			console.debug("schedule module clicked");
 			openFormModal();
 		});
 	}
@@ -87,7 +85,6 @@
 	}
 
 	var openFormModal = function(){
-		console.debug($("#modalform"));
 		if($("#modalform").length > 0){
 			$("#modalform").remove();
 		}
@@ -113,7 +110,6 @@
 				 alert("please select a day");
 				 return;
 			}
-			console.debug(form.serialize());
 			$.ajax({
 				url: appname+"/flow/cron/Schedule",
 				type: "POST",

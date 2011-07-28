@@ -123,7 +123,6 @@
 				type: "POST",
 				data: $("#regServersForm").serialize(),
 				success: function(){
-					console.debug("it worked");
 					loadConnectedServers();
 				}
 			});
@@ -225,7 +224,6 @@
 	}
 	
 	var loadCurrentServers = function(){
-		console.debug("loading current servers");
 		$.getJSON(appname+"/flow/connection/GetCurrentServers", function(json){			
 			if($("#currServers").length > 0){
 				$("#currServers").remove();
@@ -235,7 +233,6 @@
 			}
 			if(json.length > 0){
 				drawCurrentServers(json);
-				console.debug("loading currentviews");
 				drawCurrentViews();
 			}			
 		});
@@ -340,7 +337,6 @@
 	}
 	
     var initialize = function() {
-        console.debug("loading initialize");
         $("#content").append($("<div/>",{id:"toolbar"}));
         buildServerForm();
         buildContentServerForm();
