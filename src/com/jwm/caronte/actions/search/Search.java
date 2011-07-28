@@ -1,11 +1,16 @@
 package com.jwm.caronte.actions.search;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.TreeMap;
-import java.util.Map.Entry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.lainsoft.forge.flow.nav.CommandException;
@@ -37,8 +42,23 @@ public class Search extends GenericAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		IQuery query = new Query(StringUtils.defaultIfEmpty(param("searchbox"), ""));
+		
+		String sq = StringUtils.defaultIfEmpty(param("searchbox"), "");
+		Pattern pattern = Pattern.compile(".*\\$today([ ]*([-+]?)[ ]*([0-9]*)).*");
+		Matcher matcher = pattern.matcher(sq);
+		if(matcher.matches()){				
+				if(matcher.group(1).trim().equals("")){
+					sq = sq.replaceAll("\\$today", "range(min, "+new SimpleDateFormat("yyyy-MM-dd").format(new Date())+")");
+				}else{
+					Calendar cal = Calendar.getInstance();
+					cal.setTime(new Date());
+					cal.add(Calendar.DAY_OF_YEAR, (matcher.group(2).equals("-") ? -1 : 1) * Integer.valueOf(matcher.group(3)));
+					sq = sq.replaceAll("\\$today([ ]*([-+]?)[ ]*([0-9]*))","range(min, "+new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime())+")");
+				}
+		}
+		
+		IQuery query = new Query(sq);
+		System.out.println(query);
 		query.setParameter(BaseParameter.HITS, 10);
 		IQueryResult result = null;
 		try {

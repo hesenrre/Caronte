@@ -29,6 +29,11 @@
 		<param-value>com/jwm/caronte/actions/</param-value>
 	</context-param>
     
+    <context-param>
+        <param-name>cronfile</param-name>
+        <param-value>WEB-INF/config/cronf</param-value>
+    </context-param>
+    
 
    <servlet>
       <servlet-name>CoreController</servlet-name>

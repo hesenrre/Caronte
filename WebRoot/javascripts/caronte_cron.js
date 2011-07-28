@@ -15,7 +15,14 @@
 
 (function( $, undefined ) {
 
+	var appname = null;
+	
+	var loadAppName = function(){
+		appname = $("#appname").text();
+	}
+	
 	var loadButtonListener = function(){
+		console.debug("loading listener");
 		$("#schdeletb").click(function(){
 			console.debug("schedule module clicked");
 			openFormModal();
@@ -71,7 +78,7 @@
 		var every = $("<p/>");
 		every.append($("<label/>",{text: "Execute every:"}));
 		every.append($("<br/>"));
-		every.append($("<input/>",{type:"text", name:"freq", size: "4"}));
+		every.append($("<input/>",{type:"text", name:"freq", size: "4", value:"0"}));
 		var select = $("<select/>",{name: "freqtype"});
 		select.append($("<option/>", {value: "h", text: "Hours"}));
 		select.append($("<option/>", {value: "m", text: "Minutes"}));
@@ -86,14 +93,14 @@
 		}
 		var modalform = $("<div/>",{id: "modalform"});		
 		$("#content").append(modalform);
-		var form = $("<from/>",{id: "cronform"});
+		var form = $("<form/>",{id: "cronform"});
 		modalform.append(form);
 		form.append(radios());
 		var startat = $("<p/>"); 
 		form.append(startat);
 		startat.append($("<label/>",{text: "Starting at:"}));
 		startat.append($("<br/>"));
-		startat.append($("<input/>",{type:"text", name:"startfrom", size: "4"}));
+		startat.append($("<input/>",{type:"text", name:"startfrom", size: "4", value:"00:00"}));
 		form.append($("<input/>",{type:"button", value:"Cancel", class: "simplemodal-close"}));;
 		form.append($("<input/>",{type:"button", value:"Save", id:"savebutton"}));		
 		$("#modalform").modal({
@@ -102,13 +109,28 @@
 			escClose: false
 		});
 		$("#savebutton").click(function(){
-			alert("saving");
-			$.modal.close();
+			if($("input:radio[value='d']").attr("checked") && $("#hiddays").val() === ""){ 
+				 alert("please select a day");
+				 return;
+			}
+			console.debug(form.serialize());
+			$.ajax({
+				url: appname+"/flow/cron/Schedule",
+				type: "POST",
+				data: form.serialize()+"&"+$("#currServersForm").serialize()+"&"+$("#viewsform").serialize()+"&"+$("#contentdistForm").serialize()+"&"+$("#searchform").serialize(),
+				success: function(e){					
+					setTimeout(function(){
+						$.modal.close();
+						$("#modalform").remove();
+					}, 1000);
+				}
+			});
 		});
 		$("input:radio[value='d']").click();
 	}
 
 	var initialize = function(){
+		loadAppName();
 		loadButtonListener();
 	}
 
