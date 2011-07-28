@@ -304,33 +304,35 @@
 			var del = confirm("This process will delete all info matched with the current displayed search; please review the info you capture." +
 					"\n\nThe info on the search box will be used to execute the deletion." +
 					"\n\nAre you sure to procedure?");
-			$.ajax({
-				url: appname+"/flow/content/Delete",
-				type: "POST",
-				data: $("#contentdistForm").serialize()+"&"+$("#viewsform").serialize()+"&"+$("#currServersForm").serialize()+"&"+$("#searchform").serialize(),
-				success: function(){
-					$("#modal").text("delete was completed");
-				},
-				beforeSend: function(){
-					$("#results").html("");
-					$("#modal").text("deleting, please wait ...");
-					$("#modal").append($("<br/>"));
-					$("#modal").append($("<img/>",{src: appname+"/images/loading.gif"}));
-					$("#modal").modal({
-						 overlay:100,
-						 overlayCss: {backgroundColor:"#000"},
-						 escClose: false
-					});
-				},
-				error: function(){
-					$("#modal").text("delete could not be completed");
-				},
-				complete: function(){
-					setTimeout(function(){
-						$.modal.close();
-					}, 3000);
-				}
-			});
+			if (del){
+				$.ajax({
+					url: appname+"/flow/content/Delete",
+					type: "POST",
+					data: $("#contentdistForm").serialize()+"&"+$("#viewsform").serialize()+"&"+$("#currServersForm").serialize()+"&"+$("#searchform").serialize(),
+					success: function(){
+						$("#modal").text("delete was completed");
+					},
+					beforeSend: function(){
+						$("#results").html("");
+						$("#modal").text("deleting, please wait ...");
+						$("#modal").append($("<br/>"));
+						$("#modal").append($("<img/>",{src: appname+"/images/loading.gif"}));
+						$("#modal").modal({
+							overlay:100,
+							overlayCss: {backgroundColor:"#000"},
+							escClose: false
+						});
+					},
+					error: function(){
+						$("#modal").text("delete could not be completed");
+					},
+					complete: function(){
+						setTimeout(function(){
+							$.modal.close();
+						}, 3000);
+					}
+				});
+			}
 		});
 		$("#schdeletb").click(function(){
 			
