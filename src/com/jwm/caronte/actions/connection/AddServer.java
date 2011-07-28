@@ -13,7 +13,7 @@ public class AddServer extends GenericAction {
 	public String execute() throws CommandException {
 		System.out.println("server Added");		
 		if(StringUtils.isNotEmpty(param("server"))){
-			getServers().put(param("server"), StringUtils.defaultIfEmpty(param("port"), "15100"));
+			getServers().put(param("server").trim(), StringUtils.defaultIfEmpty(param("port"), "15100").trim());
 		}
 		return null;
 	}

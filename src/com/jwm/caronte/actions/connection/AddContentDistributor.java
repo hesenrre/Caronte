@@ -13,7 +13,7 @@ public class AddContentDistributor extends GenericAction {
 	public String execute() throws CommandException {
 		System.out.println("server Added");		
 		if(StringUtils.isNotEmpty(param("server"))){
-			getServers().put(param("server"), StringUtils.defaultIfEmpty(param("port"), "16100"));
+			getServers().put(param("server").trim(), StringUtils.defaultIfEmpty(param("port"), "16100").trim());
 		}
 		return null;
 	}
